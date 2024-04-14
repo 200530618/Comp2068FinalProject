@@ -1,0 +1,24 @@
+<%- include("../shared/_header") %>
+
+<div class="container mt-5">
+    <h1>Car Details</h1>
+
+    <hr class="my-5">
+
+    <a href="/resources/<%= car._id %>/edit">Edit Car</a>
+
+    <div class="car ca-car">
+        <div class="car-body">
+            <p class="car-text">
+                Name: <%= car.name %><br>
+                Year: <%= car.year %><br>
+                Color: <%= car.color %><br>
+                Model: <%= car.model %><br>
+            </p>
+        </div>
+    </div>
+
+    <a href="/resources">Back to Cars</a>
+</div>
+
+<%- include("../shared/_footer") %>
