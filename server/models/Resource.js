@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
+
 const CarSchema = new Schema({
     name: {
         type: String,

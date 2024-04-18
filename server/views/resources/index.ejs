@@ -10,6 +10,7 @@
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
+                <th>Photo</th> <!-- New column for photo -->
                 <th>Name</th>
                 <th>Model</th>
                 <th>Year</th>
@@ -21,8 +22,9 @@
 
         <tbody>
             <% if (cars && cars.length > 0) { %>
-                <% cars.forEach(({ _id, name, model, year, color, updatedAt }) => { %>
+                <% cars.forEach(({ _id, name, model, year, color, updatedAt, photo }) => { %>
                     <tr>
+                        <td><img src="<%= photo %>" alt="<%= name %> Photo" style="max-width: 100px;"></td> <!-- Display photo -->
                         <td><%= name %></td>
                         <td><%= model %></td>
                         <td><%= year %></td>

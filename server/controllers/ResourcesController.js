@@ -43,8 +43,6 @@ export const show = async (req, res, next) => {
 export const add = async (req, res, next) => {
     try {
         res.render("resources/add", { formType: "create", title: "Add New Car" });
-
-
     } catch(error) {
         next(error);
     }
@@ -64,8 +62,9 @@ export const edit = async (req, res, next) => {
 export const create = async (req, res, next) => {
     try {
         const { name, year, color, model } = req.body;
+        const photo = req.file.path; // Assuming you're using multer for file upload
 
-        const newCar = new Car({ name, year, color, model });
+        const newCar = new Car({ name, year, color, model, photo });
 
         await newCar.save();
 
@@ -88,8 +87,9 @@ export const create = async (req, res, next) => {
 export const update = async (req, res, next) => {
     try {
         const { name, year, color, model } = req.body;
+        const photo = req.file.path; // Assuming you're using multer for file upload
 
-        const updatedCar = await Car.findByIdAndUpdate(req.params.id, { name, year, color, model }, { new: true });
+        const updatedCar = await Car.findByIdAndUpdate(req.params.id, { name, year, color, model, photo }, { new: true });
 
         res.format({
             "text/html": () => {
